@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 0
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            box-sizing: border-box;
+            user-select: none;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .background {
+            /* background: url("https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjB0cmVlfGVufDB8fDB8fHww"); */
+            /* background: linear-gradient(135deg,#8f87f1,#eb7fdb,#ff85b1,#ffa285,#ffcd68,#f9f871); */
+            background: url(img.jpg);
+            display: flex;
+            background-size: cover;
+            filter: saturate(200%);
+
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            
+        }
+
+        .container {
+            width: 400px;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            color: rgb(241, 241, 241);
+            margin-bottom: 15px;
+        }
+
+        .text-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f0f0f0;
+            border-radius: 25px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .text-input input {
+            /* flex: 1; */
+            width: 270px;
+            border: none;
+            outline: none;
+            background: none;
+            padding: 5px;
+            font-size: 16px;
+            color: rgb(241, 241, 241);
+            /* border: 1px solid red; */
+             
+        }
+
+        .text-input input::placeholder {
+            color: rgb(241, 241, 241);
+        }
+
+        .text-input button {
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+
+            background: white;
+            color: gray;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .text-input button:hover {
+            background: rgb(241, 241, 241);
+        }
+
+        .text .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f7f7f7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: 0.3s;
+
+        }
+
+        .qwer {
+            display: flex;
+            align-items: center;
+            color: rgb(241, 241, 241);
+        }
+
+
+
+        .task .checkmark {
+            width: 25px;
+            height: 25px;
+            border: 2px solid rgb(241, 241, 241);
+            border-radius: 50%;
+            display: inline-block;
+            text-align: center;
+            line-height: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+            color: transparent;
+        }
+
+        .task .checkmark.checked {
+            background: rgb(241, 241, 241);
+            color: gray;
+
+        }
+
+
+        .task span {
+
+            transition: 0.3s;
+        }
+
+        .remove-icon {
+            width: 30px;
+            height: 25px;
+            display: inline-block;
+            text-align: center;
+            line-height: 23px;
+            font-weight: bold;
+            color: rgb(241, 241, 241);
+
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+
+        }
+
+        .remove-icon:hover {
+            background: #d8d5d554;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: rgb(150, 150, 150);
+        }
+
+        /*override*/
+        .text-input {
+            background-color: transparent;
+            border: 1px solid white;
+
+        }
+
+        .text .task {
+            background-color: transparent;
+            border: 1px solid white;
+        }
+
+        .task-text {
+
+            width: 270px;
+            display: flex;
+            justify-content: flex-start;
+            overflow: auto;
+            scrollbar-width: none;
+            /* border: 1px solid red; */
+            
+
+        }
+
+        @media screen and (max-width: 790px) {
+            .task-text{
+                width: 55vw;
+            }
+            .container{
+                width: 90vw;
+            }
+            .text-input input {
+               
+                width: 53vw;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="container">
+            <h2>To-Do List</h2>
+            <form class="text-input" id="wasd">
+                <input type="text" id="input" placeholder="Add your task">
+                <button >Add</button>
+            </form>
+            <div class="text"></div>
+        </div>
+    </div>
+
+    <script>
+        let input = document.getElementById("input");
+        let textList = document.querySelector(".text");
+        document.querySelector("#wasd").addEventListener("submit",(event)=>{
+            event.preventDefault();
+            addTask();
+        })
+        function addTask() {
+            if (input.value.trim() === "") return;
+            let task = document.createElement("div");
+            task.classList.add("task");
+            task.innerHTML = `
+                <span class = "qwer"><span class="material-symbols-outlined checkmark">check</span>
+                <span class="task-text">${input.value}</span></span>
+                <span class="material-symbols-outlined remove-icon">delete</span>
+            `;
+            textList.appendChild(task);
+            input.value = "";
+            saveData();
+        }
+        textList.addEventListener("click", (event) => {
+            if (event.target.classList.contains("remove-icon")) {
+                event.target.parentElement.remove();
+                saveData();
+            } else if (event.target.classList.contains("checkmark")) {
+                event.target.classList.toggle("checked");
+                event.target.nextElementSibling.classList.toggle("completed");
+                saveData();
+            }
+        });
+        function saveData() {
+            localStorage.setItem("data", textList.innerHTML);
+        }
+        function showData() {
+            textList.innerHTML = localStorage.getItem("data") || "";
+        }
+        showData();
+        // localStorage.clear();
+    </script>
+</body>
+
+</html>
